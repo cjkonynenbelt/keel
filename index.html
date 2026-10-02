@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6f5f2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Keel" />
+    <meta name="description" content="Keel turns goals into actions, actions into consistency, and shows whether you are making progress." />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <title>Keel</title>
+    <script>
+      // Apply the saved theme before first paint so there is no flash.
+      (function () {
+        var theme = 'system';
+        try {
+          var raw = localStorage.getItem('keel.data.v1');
+          if (raw) theme = (JSON.parse(raw).settings || {}).theme || 'system';
+        } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-XkEL1qAB.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CwPm2LYs.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
